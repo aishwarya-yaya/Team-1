@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Productivity Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script>
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <div class="container">
+    <header>
+      <h1>🚀 Productivity Assistant</h1>
+      <p>Stay focused, learn, and grow!</p>
+      <button onclick="logout()" style="position: absolute; top: 20px; right: 20px;" class="btn small">Logout</button>
+    </header>
+
+    <main class="main-content">
+      <!-- Timer Section -->
+      <section class="timer-section">
+        <h2>⏰ Focus Timer</h2>
+        <div class="timer-display">
+          <span id="timeDisplay">25:00</span>
+        </div>
+        <div class="timer-controls">
+          <button id="startBtn" class="btn primary">Start</button>
+          <button id="pauseBtn" class="btn secondary">Pause</button>
+          <button id="resetBtn" class="btn secondary">Reset</button>
+        </div>
+        <div class="timer-settings">
+          <label for="timerMinutes">Minutes:</label>
+          <input type="number" id="timerMinutes" min="1" max="120" value="25">
+          <button id="setTimerBtn" class="btn small">Set</button>
+        </div>
+      </section>
+
+      <!-- Learning Resources Section -->
+      <section class="resources-section">
+        <h2>📚 Learning Resources</h2>
+        <div class="resource-cards">
+          <div class="resource-card">
+            <h3>JavaScript</h3>
+            <p>Master the fundamentals of JavaScript programming</p>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="btn small">Learn More</a>
+          </div>
+          <div class="resource-card">
+            <h3>React</h3>
+            <p>Build modern user interfaces with React</p>
+            <a href="https://react.dev/" target="_blank" class="btn small">Learn More</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="sidebar">
+      <section class="progress-section">
+        <h2>📈 Progress</h2>
+        <div class="progress-feed" id="progressFeed">
+          <div class="progress-item">
+            <span class="time">09:00</span>
+            <span class="message">Welcome! Ready to be productive? 🌟</span>
+          </div>
+        </div>
+        <div class="progress-input">
+          <input type="text" id="progressInput" placeholder="Add progress update...">
+          <button id="addProgressBtn" class="btn small">Add</button>
+        </div>
+      </section>
+    </aside>
+
+    <!-- AI Assistant Section -->
+    <section class="ai-assistant">
+      <h2>🤖 AI Assistant</h2>
+      <div class="ai-chat" id="aiChat">
+        <div class="ai-message">
+          <strong>Assistant:</strong> Hello! I'm here to help you stay productive. Try asking me for tips or recommendations!
+        </div>
+      </div>
+      <div class="ai-input">
+        <input type="text" id="aiInput" placeholder="Ask for tips or recommendations...">
+        <button id="aiSendBtn" class="btn small">Send</button>
+      </div>
+      <div class="ai-config">
+        <details>
+          <summary>API Configuration</summary>
+          <input type="password" id="apiKey" placeholder="Enter OpenAI API Key (optional)">
+          <button id="saveApiBtn" class="btn small">Save</button>
+        </details>
+      </div>
+    </section>
+  </div>
+
+  <audio id="timerAlert" preload="auto">
+    <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmISBSuBzvLYiTcIGWi77eecTwwMUKfj8LZjHAY4kdfyznksBSJ2x/DdkEAKFF602+upVRQKRp/g8r5iEgUzgc7y2Ik3CBlou+3nnE8MDFCn4/C2YxwGOJHX8s55LAUids" type="audio/wav">
+  </audio>
+
+  <script>
+    function logout() {
+      localStorage.removeItem('isLoggedIn');
+      window.location.href = 'login.html';
+    }
+  </script>
+  <script src="timer.js"></script>
+  <script src="progress.js"></script>
+  <script src="resources.js"></script>
+  <script src="ai-assistant.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
