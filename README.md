@@ -62,4 +62,4 @@ Click the **Logout** button in the top-right corner of the app to:
 
 ---
 
-## 🧑‍💻 Built by [Your Name or Team]
+## 🧑‍💻 Built by Team 1
